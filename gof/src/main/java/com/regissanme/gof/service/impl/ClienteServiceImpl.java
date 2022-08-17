@@ -44,18 +44,14 @@ public class ClienteServiceImpl implements ClienteService {
         if(cliente.getNome() == null || cliente.getNome().isEmpty()){
             return;
         }
-        IbgeFrequenciaNome frequenciaNome = frequenciaNomeService.salvarFrequenciaDoNome(cliente);
-        cliente.setIbgeFrequenciaNome(frequenciaNome);
-
-        clienteRepository.save(cliente);
+        salvarClienteComFrequenciasDoNome(cliente);
     }
 
     @Override
     public void atualizar(Long id, Cliente cliente) {
         Cliente clienteExiste = this.buscarPorId(id);
         if (clienteExiste != null) {
-            IbgeFrequenciaNome frequenciaNome = frequenciaNomeService.salvarFrequenciaDoNome(cliente);
-            clienteRepository.save(cliente);
+            salvarClienteComFrequenciasDoNome(cliente);
         }
     }
 
@@ -65,6 +61,12 @@ public class ClienteServiceImpl implements ClienteService {
         if (cliente != null) {
             clienteRepository.deleteById(id);
         }
+    }
+
+    private void salvarClienteComFrequenciasDoNome(Cliente cliente) {
+        IbgeFrequenciaNome frequenciaNome = frequenciaNomeService.salvarFrequenciaDoNome(cliente);
+        cliente.setIbgeFrequenciaNome(frequenciaNome);
+        clienteRepository.save(cliente);
     }
 
 }
