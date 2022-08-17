@@ -19,8 +19,6 @@ public class IbgeFrequenciaNome {
 
     private String nome;
     private String localidade;
-//    private String sexo;
-
 
     @OneToMany(mappedBy = "ibgeFrequenciaNome", cascade = CascadeType.ALL)
     private List<IbgeFrequenciaNomeDados> res = new ArrayList<>();
@@ -64,43 +62,8 @@ public class IbgeFrequenciaNome {
                 "id=" + id +
                 ", nome='" + nome + '\'' +
                 ", localidade='" + localidade + '\'' +
-//                ", sexo='" + sexo + '\'' +
                 ", res=" + res +
                 '}';
     }
 
-
-    private static class Res {
-
-        private Long id;
-        private String periodo;
-        private Integer frequencia;
-
-        @ManyToOne
-        private IbgeFrequenciaNome ibgeFrequenciaNome;
-
-        public String getPeriodo() {
-            return periodo;
-        }
-
-        public void setPeriodo(String periodo) {
-            this.periodo = periodo;
-        }
-
-        public Integer getFrequencia() {
-            return frequencia;
-        }
-
-        public void setFrequencia(Integer frequencia) {
-            this.frequencia = frequencia;
-        }
-
-        @Override
-        public String toString() {
-            return "Res{" +
-                    "periodo='" + periodo + '\'' +
-                    ", frequencia=" + frequencia +
-                    '}';
-        }
-    }
 }

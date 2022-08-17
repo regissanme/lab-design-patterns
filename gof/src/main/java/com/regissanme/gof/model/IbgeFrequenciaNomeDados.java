@@ -21,7 +21,7 @@ public class IbgeFrequenciaNomeDados {
     private Integer frequencia;
 
     @JsonIgnore
-    @ManyToOne(fetch = FetchType.EAGER,cascade = CascadeType.ALL)
+    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     private IbgeFrequenciaNome ibgeFrequenciaNome;
 
     public Long getId() {

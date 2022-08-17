@@ -3,15 +3,10 @@ package com.regissanme.gof.service.impl;
 import com.regissanme.gof.model.Cliente;
 import com.regissanme.gof.model.IbgeFrequenciaNome;
 import com.regissanme.gof.repository.ClienteRepository;
-import com.regissanme.gof.repository.IbgeFrequenciaNomeRepository;
 import com.regissanme.gof.service.ClienteService;
 import com.regissanme.gof.service.IbgeFrequenciaNomeService;
-import com.regissanme.gof.service.IbgeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-import java.util.List;
-import java.util.Optional;
 
 /**
  * Projeto: gof
@@ -41,7 +36,7 @@ public class ClienteServiceImpl implements ClienteService {
 
     @Override
     public void inserir(Cliente cliente) {
-        if(cliente.getNome() == null || cliente.getNome().isEmpty()){
+        if (cliente.getNome() == null || cliente.getNome().isEmpty()) {
             return;
         }
         salvarClienteComFrequenciasDoNome(cliente);

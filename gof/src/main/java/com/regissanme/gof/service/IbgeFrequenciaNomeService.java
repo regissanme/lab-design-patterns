@@ -2,7 +2,6 @@ package com.regissanme.gof.service;
 
 import com.regissanme.gof.model.Cliente;
 import com.regissanme.gof.model.IbgeFrequenciaNome;
-import org.springframework.stereotype.Service;
 
 /**
  * Projeto: gof
